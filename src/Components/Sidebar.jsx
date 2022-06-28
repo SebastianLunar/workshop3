@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Offcanvas from "react-bootstrap/Offcanvas";
-import img1 from "../images/Profile_img.svg";
-/* import {useSelector} from 'react-redux' */
+
+import { useSelector } from "react-redux";
 
 function Sidebar() {
-  /*   const { user } = useSelector((store) => store.userStore); */
+  const { user } = useSelector((store) => store.register);
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -20,9 +20,9 @@ function Sidebar() {
       <Offcanvas show={show} onHide={handleClose}>
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>
-            <div className="d-flex"> 
-              <img src={img1}/* {user.img} */ alt="profile" />
-              <h4 className="m-auto ms-3">Jacob jones{/* {user.anme} */}</h4>
+            <div className="d-flex">
+              <img src={user.img} alt="profile" />
+              <h4 className="m-auto ms-3"> {user.anme}</h4>
             </div>
           </Offcanvas.Title>
         </Offcanvas.Header>
@@ -33,8 +33,6 @@ function Sidebar() {
           <h5>Term of use</h5>
           <h5>Security Policy</h5>
           <h5>About use</h5>
-
-
         </Offcanvas.Body>
       </Offcanvas>
     </>
