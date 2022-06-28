@@ -6,10 +6,9 @@ export const typesRegister = {
     register: 'register'
 }
 
-export const typesWorkouts = {
-    add: 'agregar',
-    list: 'list',
-    delete: 'eliminar',
-    clear: 'limpiar',
-    edit : 'edit',
-}
+export const typesProduct = {
+  ADD: "ADD_PRODUCT",
+  DELETE: "DELETE_PRODUCT",
+  EDIT: "EDIT_PRODUCT",
+  LIST: "LIST_PRODUCT",
+};

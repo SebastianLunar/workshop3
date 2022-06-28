@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { useSelector } from "react-redux";
 
 const Perfil = () => {
-  const { user } = useSelector((store) => store.register);
+  const { user } = useSelector((store) => store.registerStore);
 
   return (
     <div className="container mt-5">
