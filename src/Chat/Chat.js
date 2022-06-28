@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import volver from '../assets/img/Back.png'
 import sent from '../assets/img/send1.png'
-import useFormulario from '../hooks/useFormulario'
+import useFormulario from '../Hooks/useFormulario'
 import { ButtonSend, ChatDiv, DivConteinter, Form, Input, List, Ul } from '../styles/chat'
 
 export default function Chat() {

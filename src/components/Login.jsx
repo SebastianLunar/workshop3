@@ -5,7 +5,7 @@ import iconf from '../assets/facebook.png'
 import { Boton, Input, SOCIAL } from '../styles/Global';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import useForm from '../hooks/useForm';
+import useForm from '../Hooks/useForm';
 import { actionLoginAsync, loginFacebook, loginGoogle } from '../redux/actions/actionLogin';
 
 const Login = () => {
