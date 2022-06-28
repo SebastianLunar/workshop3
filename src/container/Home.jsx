@@ -25,7 +25,7 @@ export const Home = () => {
     <HomeDiv>
       <Menu>
         <div>
-          <Avatar src={profile?.image} alt={profile?.displayName} />
+          <Avatar src={profile?.photoURL} alt={profile?.displayName} />
           <div>
             <span>Hi!</span>
             <span>{profile?.displayName}</span>
