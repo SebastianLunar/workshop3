@@ -1,7 +1,6 @@
 import React from 'react';
 import logo from '../assets/Logo1.png'
 import icong from '../assets/google.png'
-import line from '../assets/Line19.png'
 import iconf from '../assets/facebook.png'
 import { Boton, Input, SOCIAL } from '../styles/Global';
 import { useDispatch } from 'react-redux';
@@ -41,7 +40,6 @@ const Login = () => {
                     <h4>Sign in with</h4>
                     <SOCIAL>
                         <img src={icong} alt="" onClick={() => dispatch(loginGoogle())} />
-                        <img src={line} alt="" />
                         <img src={iconf} alt="" onClick={() => dispatch(loginFacebook())}/>
                     </SOCIAL>
                 </div>

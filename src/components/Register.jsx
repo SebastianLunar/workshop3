@@ -3,7 +3,6 @@ import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 import { auth } from "../Firebase/firebaseConfig";
 import logo from '../assets/Logo1.png'
 import icong from '../assets/google.png'
-import line from '../assets/Line19.png'
 import iconf from '../assets/facebook.png'
 import { Boton, SOCIAL } from '../styles/Global';
 import { useDispatch } from 'react-redux';
@@ -63,6 +62,7 @@ const Register = () => {
         name: Yup.string().min(2, 'Name too short').max(20).required("This field is required"),
         email: Yup.string().email('Should be example@mail.com').required("This field is required"),
         phone: Yup.string().min(10, 'Phone should be at least 10 digits long').max(20).required("This field is required"),
+        country: Yup.string().min(3, 'This field should be at least 3 digits long').max(20).required("This field is required"),
         password: Yup.string().min(6, 'Password too short').max(20).required("This field is required")
     })
 
@@ -77,12 +77,13 @@ const Register = () => {
                             name: '',
                             email: '',
                             phone: '',
+                            country: '',
                             password: '',
                             image: 'https://res.cloudinary.com/dd5yolnde/image/upload/v1656300664/buffalo-sprint3/user_fa0maw.png'
                         }}
                         validationSchema={SignupSchema}
                         onSubmit={values => {
-                            dispatch(actionRegisterAsync(values.name, values.email, values.phone, values.password, values.image, "", "", "", ""),
+                            dispatch(actionRegisterAsync(values.name, values.email, values.phone, values.country, values.password, values.image),
                                 handleSubmit(values.phone),
                             )
                         }}
@@ -101,7 +102,10 @@ const Register = () => {
                                 {errors.phone && touched.phone ?
                                     (<div>{errors.phone}</div>) : null}
                                 <div id="recaptcha-container" style={{ display: "flex", justifyContent: "center", marginBottom: "10px" }}></div>
-                                <Field className="entrada" type="password" placeholder="Password" name="password" style={{ marginBottom: "54px" }} />
+                                <Field className="entrada" type="text" placeholder="Country" name="country" style={{ marginBottom: "10px" }} />
+                                {errors.country && touched.country ?
+                                    (<div>{errors.country}</div>) : null}
+                                <Field className="entrada" type="password" placeholder="Create password" name="password" style={{ marginBottom: "54px" }} />
                                 {errors.password && touched.password ?
                                     (<div>{errors.password}</div>) : null}
                                 <Boton type='submit'>Sign Up</Boton>
@@ -112,7 +116,6 @@ const Register = () => {
                         <h4>OR Sign in with</h4>
                         <SOCIAL>
                             <img src={icong} alt="" onClick={() => dispatch(loginGoogle(), navigate('/measures'))} />
-                            <img src={line} alt="" />
                             <img src={iconf} alt="" onClick={() => dispatch(loginFacebook(), navigate('/measures'))} />
                         </SOCIAL>
                     </div>
